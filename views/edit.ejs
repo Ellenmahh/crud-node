@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <title>My CRUD in nodeJS</title>
+  </head>
+  <body>
+    <h2>Editar Registros</h2>
+        <form action="/products/<%= product._id %>/update" method="post">
+          <input type="text" value="<%= product.name %>" name="name">
+          <input type="text" value="<%= product.price %>" name="price">
+          <br/>
+          <br/>
+          <button><a href="/products/">Todos</a></button>
+          <button type="submit">Editar</button>
+        </form>
+        <br/>
+        <button><a href="/">Novo</a></button>
+  </body>
+</html>
