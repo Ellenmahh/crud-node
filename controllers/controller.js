@@ -31,18 +31,21 @@ exports.get = function (req, res) {
 exports.getAll = function (req, res) {
     Product.find({}, function (err, product) {
         if (err) return next(err);
-        // res.send(product);
-        res.render('show.ejs', { data: product })
+        console.log(req.query.format);
+        if(req.query.format == 'json')
+          res.send(product);
+        else
+          res.render('show.ejs', { data: product })
     })
 };
 
 //put
 exports.putGet = function (req, res) {
   // res.send('Product updated.');
+
   Product.findById(req.params.id, function (err, product) {
       if (err) return next(err);
-      // res.send(product);
-        res.render('edit.ejs', { product })
+      res.render('edit.ejs', { product });
   })
 };
 exports.putPost = function (req, res) {
